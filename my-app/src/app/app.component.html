@@ -1,0 +1,36 @@
+<div class="item">
+  <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+</div>
+
+
+<div *ngIf="isLoading; else content">
+  <ngx-skeleton-loader count="3" appearance="circle"></ngx-skeleton-loader>
+</div>
+
+<ng-template #content>
+  <!-- Your actual content goes here -->
+  <h1>{{ title }}</h1>
+  <p>Content loaded successfully!</p>
+
+  <div class="item">
+    <ngx-skeleton-loader></ngx-skeleton-loader>
+    <!-- Default height skeleton loader -->
+    <ngx-skeleton-loader [theme]="{ background: 'blue' }"></ngx-skeleton-loader>
+    <!-- Skeleton loader with blue background -->
+    <ngx-skeleton-loader [theme]="{ height: '50px', background: 'red' }"></ngx-skeleton-loader>
+    <!-- Skeleton loader with specified height and red background -->
+  </div>
+</ng-template>
+
+<div class="item">
+  <!-- Disables the animation -->
+  <ngx-skeleton-loader animation="false" />
+  <!-- Disables the animation, but receiving boolean value from binding -->
+  <!-- Via binding it can receive `false` (boolean), "false" (string), or any other animation type -->
+  <ngx-skeleton-loader [animation]="classAttributeWithBooleanFalseValue" />
+  <!-- Uses `progress` as animation -->
+  <ngx-skeleton-loader animation="progress" />
+  <ngx-skeleton-loader />
+  <!-- Uses `pulse` as animation -->
+  <ngx-skeleton-loader animation="pulse" />
+</div>
